@@ -46,14 +46,14 @@ class Graf
     public void Dijkstra(NodeG startNode)
     {
         var trasa = new Dictionary<NodeG, int>();
-        var previousNodes = new Dictionary<NodeG, NodeG>();
+        var poprzednie = new Dictionary<NodeG, NodeG>();
         var nieodwiedzone = new List<NodeG>(Nodes);
 
         
         foreach (var node in Nodes)
         {
             trasa[node] = int.MaxValue;
-            previousNodes[node] = null;
+            poprzednie[node] = null;
         }
         trasa[startNode] = 0;
 
@@ -73,7 +73,7 @@ class Graf
                 if (newDist < trasa[sasiad])
                 {
                     trasa[sasiad] = newDist;
-                    previousNodes[sasiad] = trzymany;
+                    poprzednie[sasiad] = trzymany;
                 }
             }
         }
